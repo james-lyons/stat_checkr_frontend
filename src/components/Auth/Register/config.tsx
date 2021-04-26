@@ -3,7 +3,10 @@ interface Props {
    email: string,
    password: string,
    password2: string,
-   error: null | Error
+   error: null | Error,
+   changeModal: () => void;
+   handleChange: (event: Event) => void;
+   handleSubmit: (event: Event) => Promise<void>;
 };
 
 interface Error {
@@ -11,7 +14,8 @@ interface Error {
 };
 
 interface Event {
-   target: Target
+   target: Target,
+   preventDefault: () => void
 };
 
 interface Target {
@@ -25,5 +29,6 @@ interface TargetState {
 };
 
 export {
-   Props
+   Props,
+   Event
 };

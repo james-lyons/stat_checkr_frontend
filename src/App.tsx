@@ -26,12 +26,16 @@ class App extends React.PureComponent<{}, State> {
    };
 
    render() {
+      const { modalType } = this.state;
       const { changeModal } = this;
 
       return (
          <>
             <div id='app-container'>
-               <Layout />
+               <Layout
+                  changeModal={ changeModal }
+                  modalType={ modalType }
+               />
             </div>
          </>
       );

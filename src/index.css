@@ -12,6 +12,87 @@ html, body {
    background-size: cover;
 }
 
+.layout-container {
+   display: grid;
+   width: 100%;
+   grid-template-columns: 50% 50%;
+}
+
+#large-layout {
+   height: 100%;
+   grid-template-columns: (50% 50%);
+}
+
+#avatar-container {
+   border: 2px solid black;
+}
+
+
+/* -------------------- REGISTER CSS -------------------- */
+
+/* #register-container {
+   
+} */
+
+#register-form {
+   padding: 20px;
+}
+
+#register-button {
+   display: inline-block
+}
+
+.register-label {
+   display: block;
+}
+
+.register-tooltip {
+
+}
+
+.register-text {
+
+}
+
+.register-input {
+   display: block
+}
+
+
+.modal-change-span:hover {
+   cursor: pointer;
+}
+
+.register-tooltip  {
+   font-size: var(--fs-small);
+   background: var(--clr-dark);
+   display: inline-block;
+   width: 1rem;
+   height: 1rem;
+   border-radius: 50%;
+   text-align: center;
+   align-self: center;
+   margin-left: .5em;
+   position: relative;
+}
+ 
+.register-tooltip ::after {
+   content: attr(data-tooltip);
+   display: none;
+   position: absolute;
+   padding: 1em;
+   background: var(--clr-dark);
+   bottom: 1.5em;
+   text-align: left;
+   width: 250px;
+   color: var(--clr-1);
+}
+ 
+.register-tooltip :hover::after {
+   display: block;
+}
+
+
 @media only screen and (max-width: 700px) {
    #app-container {
       background-position: 5%;

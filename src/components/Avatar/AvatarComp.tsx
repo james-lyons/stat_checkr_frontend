@@ -3,7 +3,7 @@ import React from 'react';
 const Avatar: React.FunctionComponent<{}> = ({}) => {
    return (
       <>
-         <div>Hallo from Avatar</div>
+         <div id='avatar-container'>Hallo from Avatar</div>
       </>
    );
 };
