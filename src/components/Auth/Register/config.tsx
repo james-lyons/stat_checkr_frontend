@@ -5,6 +5,7 @@ interface Props {
    email: string,
    password: string,
    password2: string,
+   profile_pic: string,
    registerSuccess: string,
    error: null | Error,
    changeModal: () => void,

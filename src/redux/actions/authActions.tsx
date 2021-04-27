@@ -3,6 +3,8 @@ import { API_URL } from '../../constants';
 import { Dispatch } from 'redux';
 
 const userRegister = (newUser: newUser) => {
+   console.log('logging newUser', newUser);
+   
    return async (dispatch: Dispatch) => {
       try {
          let res = await fetch(`${ API_URL }/auth/register`,

@@ -3,6 +3,7 @@ interface newUser {
    email: string,
    password: string,
    password2: string,
+   profile_pic: string
 };
 
 interface User {

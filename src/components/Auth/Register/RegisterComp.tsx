@@ -1,13 +1,14 @@
 import React, { MouseEvent } from 'react';
 import { Props, Event } from './config';
-import { Form, Button, Header, Message } from 'semantic-ui-react'
+import { Form, Button, Header, Message, Image } from 'semantic-ui-react'
 
 const RegisterComp: React.FunctionComponent<Props> = ({
+   error,
    name,
    email,
    password,
    password2,
-   error,
+   profile_pic,
    registerSuccess,
    changeModal,
    handleChange,
@@ -76,6 +77,19 @@ const RegisterComp: React.FunctionComponent<Props> = ({
                   value={ password2 }
                   onChange={ handleChange }
                />
+
+               <Form.Input
+                  required
+                  type='text'
+                  name='profile_pic'
+                  label='Profile Pic'
+                  placeholder='Add a link to a profile picture here'
+                  value={ profile_pic }
+                  onChange={ handleChange }
+               />
+
+               <Image src={ profile_pic } circular size='mini' alt='profile pic'/>
+               <br />
 
                <Button type='submit' color='green'>Submit</Button>
                <span onClick={ () => changeModal() } className="modal-change-span">Don't have an account? Register now!</span> 

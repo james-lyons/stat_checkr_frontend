@@ -4,13 +4,15 @@ interface State {
    password: string,
    password2: string,
    passwordType: string,
+   profile_pic: string,
    error: null | Error,
    registerSuccess: boolean
 };
 
 interface Props {
    history: History,
-   error: null | { message: string }
+   error: null | { message: string },
+   userRegister: (newUser: NewUser) => void
 };
 
 interface User {
@@ -21,6 +23,7 @@ interface User {
 interface NewUser {
    name: string,
    email: string,
+   profile_pic: string,
    password: string,
    password2: string
 };

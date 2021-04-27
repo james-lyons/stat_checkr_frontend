@@ -13,6 +13,7 @@ class Register extends React.PureComponent<Props, State> {
       password2: '',
       passwordType: 'password',
       registerSuccess: false,
+      profile_pic: 'https://www.sackettwaconia.com/wp-content/uploads/default-profile.png',
       error: null
    };
 
@@ -20,14 +21,17 @@ class Register extends React.PureComponent<Props, State> {
       this.setState({
          [event.target.name]: event.target.value
       });
+      console.log('this.state', this.state);
    };
 
    private handleSubmit = async (event: Event) => {
       event.preventDefault();
+
+      console.log(this.state);
       
       const { userRegister } = this.props;
-      const { name, email, password, password2 } = this.state;
-      const newUser = { name, email, password, password2 };
+      const { name, email, profile_pic, password, password2 } = this.state;
+      const newUser = { name, email, profile_pic, password, password2 };
 
       const symbols = ['!', '@', '#', '$', '%', '^', '&', '*'];
       const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
@@ -103,20 +107,21 @@ class Register extends React.PureComponent<Props, State> {
       
       const { handleChange, handleSubmit } = this;
       const { changeModal } = this.props;
-      const { name, email, password, password2, passwordType, error, registerSuccess } = this.state;
+      const { name, email, password, password2, profile_pic, error, registerSuccess } = this.state;
 
       return (
          <>
             <RegisterComp
-               changeModal={ changeModal }
-               handleChange={ handleChange }
-               handleSubmit={ handleSubmit }
+               error={ error }
                name={ name }
                email={ email }
                password={ password }
                password2={ password2 }
+               profile_pic={ profile_pic }
                registerSuccess={ registerSuccess }
-               error={ error }
+               changeModal={ changeModal }
+               handleChange={ handleChange }
+               handleSubmit={ handleSubmit }
             />
          </>
       );
