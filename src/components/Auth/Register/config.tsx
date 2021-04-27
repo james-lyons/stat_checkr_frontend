@@ -1,12 +1,15 @@
+import React from 'react';
+
 interface Props {
    name: string,
    email: string,
    password: string,
    password2: string,
+   registerSuccess: string,
    error: null | Error,
-   changeModal: () => void;
-   handleChange: (event: Event) => void;
-   handleSubmit: (event: Event) => Promise<void>;
+   changeModal: () => void,
+   handleChange: (event: React.ChangeEvent<HTMLInputElement>, data: InputOnChangeData) => void,
+   handleSubmit: (event: React.FormEvent<HTMLFormElement>, data: FormProps) => void
 };
 
 interface Error {
@@ -27,6 +30,10 @@ interface TargetState {
    name: string,
    password: string
 };
+
+interface FormProps {}
+
+interface InputOnChangeData {}
 
 export {
    Props,

@@ -7,14 +7,12 @@ import { Props } from './config';
 
 const LargeLayout: React.FunctionComponent<Props> = ({ modalType, changeModal }) => {
 
-
-
    return (
       <div className='layout-container' id='large-layout'>
          <Avatar />
 
          { modalType=== 'register' && <Register changeModal={ changeModal }/> }
-         { modalType=== 'login' && <Login /> }
+         { modalType=== 'login' && <Login changeModal={ changeModal }/> }
       </div>
    );
 };

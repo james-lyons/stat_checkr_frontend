@@ -1,8 +1,9 @@
-import { newUser } from './config';
+import { newUser, User } from './config';
 import { API_URL } from '../../constants';
+import { Dispatch } from 'redux';
 
 const userRegister = (newUser: newUser) => {
-   return async dispatch => {
+   return async (dispatch: Dispatch) => {
       try {
          let res = await fetch(`${ API_URL }/auth/register`,
             {
@@ -26,8 +27,42 @@ const userRegister = (newUser: newUser) => {
    };
 };
 
-const userLogin = () => {
-   console.log('HIIIIIIIII FROM USERLOGIN');
+
+const userLogin = (user: User) => {
+   console.log('logging userlogin', user);
+
+   return async (dispatch: Dispatch) => {
+      console.log('logging userLogin 1');
+
+      try {
+         let res = await fetch(`${ API_URL }/auth/login`,
+            {
+               method: 'POST',
+               credentials: 'include',
+               headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify(user)
+            }
+         );
+
+         const data = await res.json();
+
+         console.log('logging data 1', data);
+
+         if (data.status >= 400) {
+            dispatch({ type: 'USER_LOGIN_REJECTED', payload: data});
+            return { error: data.error };
+         };
+
+         console.log('logging data 2', data);
+         localStorage.setItem('uid', data.data._id);
+         
+         return dispatch({ type: 'USER_LOGIN_FULFILLED', payload: data });
+         
+      } catch (error) {
+         console.log('logging login error', error);
+         return dispatch({ type: 'USER_LOGIN_REJECTED', payload: error });
+      };
+   };
 };
 
 const userLogout = () => {

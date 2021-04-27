@@ -1,7 +1,11 @@
 interface Props {
    email: string,
    password: string,
-   error: null | Error
+   loginSuccess: boolean,
+   error: null | Error,
+   changeModal: () => void
+   handleChange: () => void
+   handleSubmit: (event: Event) => void
 };
 
 interface Error {

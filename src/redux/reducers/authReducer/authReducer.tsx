@@ -14,6 +14,12 @@ function authReducer(state: State = { error: null }, action: Action) {
       
       case "USER_LOGIN_REJECTED": 
          return { ...state, errors: action.payload.error }
+   
+      case "USER_LOGOUT_FULFILLED":
+         return { ...state, errors: null };
+      
+      case "USER_LOGOUT_REJECTED": 
+         return { ...state, errors: action.payload.error }
       
       default:
          return { ...state };

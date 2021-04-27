@@ -5,12 +5,17 @@ import Login from '../../containers/Auth/Login/Login';
 
 import { Props } from './config';
 
-const MobileLayout: React.FunctionComponent<Props> = ({}) => {
+const MobileLayout: React.FunctionComponent<Props> = ({ modalType, changeModal }) => {
    return (
       <div className='layout-container' id='mobile-layout'>
-         <Avatar />
-         <Register />
-         <Login />
+         <div id='avatar-container'>
+            <Avatar />
+         </div>
+
+         <div id='modal-container'>
+            { modalType=== 'register' && <Register changeModal={ changeModal }/> }
+            { modalType=== 'login' && <Login changeModal={ changeModal }/> }
+         </div>
       </div>
    );
 };

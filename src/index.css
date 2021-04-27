@@ -5,6 +5,10 @@ html, body {
    min-width: 100vw !important;
 }
 
+
+/* ------------------- Screen Layout ------------------- */
+
+
 #app-container {
    height: 100vh;
    width: 100vw;
@@ -16,26 +20,55 @@ html, body {
    display: grid;
    width: 100%;
    grid-template-columns: 50% 50%;
+   border: 2px solid yellow;
 }
+
+/* #mobile-layout {
+   
+} */
+
+/* #medium-layout {
+
+} */
 
 #large-layout {
    height: 100%;
    grid-template-columns: (50% 50%);
 }
 
-#avatar-container {
+
+/* ---------------------- Avatar ---------------------- */
+
+
+#avatar-component {
    border: 2px solid black;
+   display: flex;
+   justify-content: center;
+}
+
+#sample-avatar {
+   display: flex;
+   align-self: center;
+   height: 50%;
 }
 
 
-/* -------------------- REGISTER CSS -------------------- */
 
-/* #register-container {
-   
-} */
+/* ------------------- Modal Container ------------------ */
+
+
+
+/* -------------------- Register CSS -------------------- */
+
+#register-container {
+   border: 2px solid blue
+}
 
 #register-form {
-   padding: 20px;
+   background-color: dodgerblue;
+   border-radius: 5px;
+   max-width: 60%;
+   padding: 3rem;
 }
 
 #register-button {
@@ -46,21 +79,16 @@ html, body {
    display: block;
 }
 
-.register-tooltip {
+/* .register-tooltip {
 
-}
+} */
 
-.register-text {
+/* .register-text {
 
-}
+} */
 
 .register-input {
    display: block
-}
-
-
-.modal-change-span:hover {
-   cursor: pointer;
 }
 
 .register-tooltip  {
@@ -93,7 +121,92 @@ html, body {
 }
 
 
-@media only screen and (max-width: 700px) {
+/* -------------------- Login CSS -------------------- */
+#login-form {
+   background-color: dodgerblue;
+   border-radius: 5px;
+   max-width: 60%;
+   padding: 3rem;
+}
+
+#login-button {
+   display: inline-block
+}
+
+.login-label {
+   display: block;
+}
+
+/* .login-tooltip {
+
+}
+
+.login-text {
+
+} */
+
+.login-input {
+   display: block
+}
+
+.login-tooltip  {
+   font-size: var(--fs-small);
+   background: var(--clr-dark);
+   display: inline-block;
+   width: 1rem;
+   height: 1rem;
+   border-radius: 50%;
+   text-align: center;
+   align-self: center;
+   margin-left: .5em;
+   position: relative;
+}
+ 
+.login-tooltip ::after {
+   content: attr(data-tooltip);
+   display: none;
+   position: absolute;
+   padding: 1em;
+   background: var(--clr-dark);
+   bottom: 1.5em;
+   text-align: left;
+   width: 250px;
+   color: var(--clr-1);
+}
+ 
+.login-tooltip :hover::after {
+   display: block;
+}
+
+
+
+/* --------------------- GLOBAL CSS --------------------- */
+
+
+.modal-change-span:hover {
+   cursor: pointer;
+}
+
+
+/* ------------------- Media Queries -------------------- */
+
+
+
+@media only screen and (max-width: 800px) {
+   #app-container {
+      background-position: 2%;
+   }
+
+   .layout-container {
+      grid-template-columns: 100%;
+   }
+
+   #sample-avatar {
+      height: 100%;
+   }
+}
+
+@media only screen and (max-width: 600px) {
    #app-container {
       background-position: 5%;
    }

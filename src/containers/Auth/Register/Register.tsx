@@ -84,7 +84,9 @@ class Register extends React.PureComponent<Props, State> {
 
       const res:Response = await userRegister(newUser);
 
-      if (res.type === 'USER_REGISTERATION_REJECTED') {
+      console.log('logging res', res);
+
+      if (res.type === 'USER_REGISTRATION_REJECTED') {
          this.setState({ error: res.payload.error });
          console.log('error 5');
          return;
@@ -93,8 +95,8 @@ class Register extends React.PureComponent<Props, State> {
       if (res.type === 'USER_REGISTRATION_FULFILLED') {
          await this.setState({ error: null, registerSuccess: true })
       };
-
       console.log(this.state);
+      return;
    };
 
    render() {
@@ -113,6 +115,7 @@ class Register extends React.PureComponent<Props, State> {
                email={ email }
                password={ password }
                password2={ password2 }
+               registerSuccess={ registerSuccess }
                error={ error }
             />
          </>

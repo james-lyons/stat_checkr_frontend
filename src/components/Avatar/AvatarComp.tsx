@@ -1,9 +1,12 @@
 import React from 'react';
+import sample_avatar from '../../files/sample_avatar.png';
 
 const Avatar: React.FunctionComponent<{}> = ({}) => {
    return (
       <>
-         <div id='avatar-container'>Hallo from Avatar</div>
+         <div id='avatar-component'>
+            <img id='sample-avatar' src={ sample_avatar } alt='sample avatar' />
+         </div>
       </>
    );
 };

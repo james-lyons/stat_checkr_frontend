@@ -1,13 +1,15 @@
 interface State {
    email: string,
    password: string,
+   loginSuccess: boolean,
    error: null | Error,
-   loginSuccess: boolean
 };
 
 interface Props {
    history: History,
-   error: null | { message: string }
+   error: null | { message: string },
+   changeModal: () => void,
+   userLogin: (user: User) => Promise<void>
 };
 
 interface User {
@@ -31,8 +33,10 @@ interface TargetState {
 };
 
 interface Response {
-   type: string,
-   payload: Payload
+   // type?: string,
+   // status?: number,
+   // payload?: Payload,
+   error: Error
 };
 
 interface Payload {

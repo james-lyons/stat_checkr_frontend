@@ -6,11 +6,11 @@ interface newUser {
 };
 
 interface User {
-   name: string,
-   email: string
-}
+   email: string,
+   password: string
+};
 
 export {
    newUser,
    User
-}
+};

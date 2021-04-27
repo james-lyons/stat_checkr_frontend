@@ -8,7 +8,7 @@ import { State } from './AppConfig';
 class App extends React.PureComponent<{}, State> {
 
    state: State = {
-      modalType: 'register'
+      modalType: 'login'
    };
 
    private changeModal = () => {

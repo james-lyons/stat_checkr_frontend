@@ -1,52 +1,85 @@
 import React, { MouseEvent } from 'react';
 import { Props, Event } from './config';
+import { Form, Button, Header, Message } from 'semantic-ui-react'
 
 const RegisterComp: React.FunctionComponent<Props> = ({
-   name, email, password, password2, error, changeModal, handleChange, handleSubmit
+   name,
+   email,
+   password,
+   password2,
+   error,
+   registerSuccess,
+   changeModal,
+   handleChange,
+   handleSubmit
 }) => {
 
    return (
       <div
          id='register-container'
       >
-         <form id="register-form" action="" onSubmit={ handleSubmit }>
-            <label className="register-label" htmlFor="name">
-               name
-               <span className="register-tooltip" data-tooltip="Minimum 12 characters, at least one capital and one number">
-                  ?
-               </span>
-            </label>
-            <input className="register-input" type="text" id="name" name="name" onChange={ handleChange }/>
-            <label className="register-label">
-               Email
-               <span className="register-tooltip" data-tooltip="Please enter your email address">
-                  ?
-               </span>
-            </label>
-            <input
-               className="register-input"
-               id="email"
-               name="email"
-               type="email"
-               onChange={ handleChange }
-            />
 
-            <label className="register-label" htmlFor="password">
-               Password
-               <span className="register-tooltip" data-tooltip="Minimum 12 characters, at least one capital and one number">
-                  ?
-               </span>
-            </label>
-            <input className="register-input" type="password" id="password" name="password" onChange={ handleChange }/>
+         <Form id='register-form' onSubmit={ handleSubmit }>
+               <Header as='h1'>Register</Header>
 
-            <label className="register-label" htmlFor="password-reenter">
-               Re-enter password
-            </label>
-            <input className="register-input" type="password" id="password2" name="password2" onChange={ handleChange }/>
-            
-            <button id="register-button">Sign up now</button>
-            <span className='fineprint modal-change-span' onClick={ () => changeModal() }>I already have an account</span>      
-         </form>
+               {
+                  registerSuccess &&
+                  <Message>
+                     Thank you for signing up!
+                  </Message>
+               }
+
+               {
+                  error &&
+                  <Message size='small'>
+                     <Message.Header>{ error.message }</Message.Header>
+                     <p>Please try again!</p>
+                  </Message>
+               }
+
+               <Form.Input
+                  required
+                  type='text'
+                  name='name'
+                  label='Name'
+                  placeholder='John Doe'
+                  value={ name }
+                  onChange={ handleChange }
+               />
+
+               <Form.Input
+                  required
+                  type='email'
+                  name='email'
+                  label='Email'
+                  placeholder='sample@email.com'
+                  value={ email }
+                  onChange={ handleChange }
+               />
+
+               <Form.Input
+                  required
+                  type='password'
+                  name='password'
+                  label='Password'
+                  placeholder='Enter Password'
+                  value={ password }
+                  onChange={ handleChange }
+               />
+
+               <Form.Input
+                  required
+                  type='password'
+                  name='password2'
+                  label='Re-enter Password'
+                  placeholder='Enter Password'
+                  value={ password2 }
+                  onChange={ handleChange }
+               />
+
+               <Button type='submit' color='green'>Submit</Button>
+               <span onClick={ () => changeModal() } className="modal-change-span">Don't have an account? Register now!</span> 
+            </Form>
       </div>
    );
 };

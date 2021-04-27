@@ -5,12 +5,13 @@ import Login from '../../containers/Auth/Login/Login';
 
 import { Props } from './config';
 
-const MediumLayout: React.FunctionComponent<Props> =({}) => {
+const MediumLayout: React.FunctionComponent<Props> =({ modalType, changeModal }) => {
    return (
       <div className='layout-container' id='medium-layout'>
          <Avatar />
-         <Register />
-         <Login />
+
+         { modalType=== 'register' && <Register changeModal={ changeModal }/> }
+         { modalType=== 'login' && <Login changeModal={ changeModal }/> }
       </div>
    );
 };
